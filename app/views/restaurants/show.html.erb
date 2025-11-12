@@ -1,0 +1,12 @@
+<p><%= "#{@restaurant.name} is located in #{@restaurant.address}" %></p>
+<% @restaurant.reviews.each do |review|  %>
+  <div>
+    <h3>Review</h3>
+    <% review.rating %> * <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+    <p><%= review.content %></p>
+  </div>
+<% end %>
+<!--
+Add rating later. Right now it seems to break the code if I add a new restaurant and it doesn't have ratings yet. Maybe need a bit more sophisticated solution, for example do a each on ratings. Also I guess I want an average rating somewhere, but that should be a method in the controller.
+-->
+<%= link_to "Submit a review", new_restaurant_review_path(@restaurant), class:"btn btn-primary"%>
